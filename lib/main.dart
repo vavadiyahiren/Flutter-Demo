@@ -95,6 +95,7 @@ class AfterSplash extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(10.0),
               child: new TextFormField(
+                obscureText: true,
                 decoration: new InputDecoration(
                   labelText: "Enter Password",
                   fillColor: Colors.white,
@@ -122,21 +123,30 @@ class AfterSplash extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.blue)),
-                color: Colors.blue,
-                textColor: Colors.white,
-                child: Text(
-                  "Login",
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: SizedBox(
+                    height: 75.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.blue)),
+                        color: Colors.blue,
+                        textColor: Colors.white,
+                        child: Text(
+                          "Login",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ),
                 ),
-                onPressed: () {},
-              ),
-            )
+              ],
+            ),
           ],
         ),
       ),
