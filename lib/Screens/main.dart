@@ -75,11 +75,11 @@ class AfterSplash extends StatelessWidget {
                 children: <Widget>[
                   const Image(
                     image: AssetImage('assets/images/logo.png'),
-                    height: 125,
-                    width: 125,
+                    height: 150,
+                    width: 150,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 50.0),
+                    padding: EdgeInsets.only(top: 60.0),
                   ),
                   Padding(
                     padding: EdgeInsets.all(10.0),
@@ -148,9 +148,16 @@ class AfterSplash extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 10.0),
                   ),
-                  Text(!_data.isAuthenticated
-                      ? "Invalid Username or Password"
-                      : ""),
+                  Text(
+                    !_data.isAuthenticated
+                        ? "Invalid Username or Password"
+                        : "",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15.0),
+                  ),
                   Row(
                     children: <Widget>[
                       Expanded(
