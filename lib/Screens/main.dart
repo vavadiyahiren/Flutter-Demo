@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
-      seconds: 3,
+      seconds: 1,
       photoSize: 100,
       image: Image(
         image: AssetImage('assets/images/logo.png'),
@@ -63,9 +63,6 @@ class AfterSplash extends StatelessWidget {
     return new Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            color: Colors.black12,
-          ),
           Center(
             child: Form(
               key: _formKey,
@@ -73,6 +70,24 @@ class AfterSplash extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+//                  Padding(
+//                    padding: const EdgeInsets.only(left: 30.0),
+//                    child: Container(
+//                      height: 250,
+//                      width: MediaQuery.of(context).size.width,
+//                      decoration: BoxDecoration(
+//                        color: Colors.purple,
+//                        borderRadius:
+//                            BorderRadius.only(bottomLeft: Radius.circular(75)),
+//                      ),
+//                      child: Padding(
+//                        padding: const EdgeInsets.all(50.0),
+//                        child: Image.asset(
+//                          "assets/images/logo.png",
+//                        ),
+//                      ),
+//                    ),
+//                  ),
                   const Image(
                     image: AssetImage('assets/images/logo.png'),
                     height: 150,
@@ -87,7 +102,7 @@ class AfterSplash extends StatelessWidget {
                       controller: _userName,
                       decoration: new InputDecoration(
                         prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.email,
                           color: Colors.blue,
                         ),
                         labelText: "Enter Email",
@@ -167,7 +182,7 @@ class AfterSplash extends StatelessWidget {
                             padding: const EdgeInsets.all(10.0),
                             child: RaisedButton(
                               shape: RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(18.0),
+                                  borderRadius: new BorderRadius.circular(25.0),
                                   side: BorderSide(color: Colors.blue)),
                               color: Colors.blue,
                               textColor: Colors.white,
@@ -200,7 +215,7 @@ class AfterSplash extends StatelessWidget {
     String username = _userName.text;
     String password = _password.text;
 
-    if (username == 'vavadiyahiren@gmail.com' && password == 'hiren@123') {
+    if (username == 'a@a.com' && password == '123456') {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Home(username)),

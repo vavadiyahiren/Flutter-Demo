@@ -1,6 +1,11 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:demo/Screens/Chat.dart';
+import 'package:demo/Screens/Dashboard.dart';
+import 'package:demo/Screens/Users.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'Setting.dart';
 
 class Home extends StatefulWidget {
   String username;
@@ -17,6 +22,8 @@ class _homeState extends State<Home> {
   String username;
   PageController _pageController;
 
+  int _selectedIndex = 0;
+
   _homeState(username) {
     this.username = username;
   }
@@ -24,22 +31,61 @@ class _homeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
+    _pageController = PageController(initialPage: 0, keepPage: true);
   }
 
   @override
   Widget build(BuildContext context) {
-    var _selectedIndex;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("DashBoard"),
+        backgroundColor: Colors.red,
+        centerTitle: true,
+        leading: Padding(
+          padding: const EdgeInsets.only(
+            left: 10.0,
+          ),
+          child: Icon(
+            Icons.menu,
+            size: 30,
+          ),
+        ),
+        title: Text(
+          "Xr Studio",
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Icon(
+              Icons.settings,
+              size: 30,
+            ),
+          )
+        ],
       ),
-      body: Center(
-        child: Text('Welcome ' + username),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          pageChanged(index);
+        },
+        children: <Widget>[
+          Center(
+            child: Dashboard(),
+          ),
+          Center(
+            child: Users(),
+          ),
+          Center(
+            child: Chat(),
+          ),
+          Center(
+            child: Setting(),
+          )
+        ],
       ),
       bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _selectedIndex = 0,
+        selectedIndex: _selectedIndex,
         showElevation: true,
         onItemSelected: (index) => setState(() {
           _selectedIndex = index;
@@ -67,5 +113,11 @@ class _homeState extends State<Home> {
         ],
       ),
     );
+  }
+
+  void pageChanged(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }
