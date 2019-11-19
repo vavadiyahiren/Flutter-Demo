@@ -30,6 +30,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController _userName = TextEditingController();
+  TextEditingController _password = TextEditingController();
+
+  @override
+  void dispose() {
+    _userName.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
@@ -48,13 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 // Show login screen after splash screen.
 class AfterSplash extends StatelessWidget {
-  TextEditingController _userName = TextEditingController();
-  TextEditingController _password = TextEditingController();
-
   final _formKey = GlobalKey<FormState>();
   var error = false;
 
   String errorMessage = "";
+
+  TextEditingController _userName = TextEditingController();
+  TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

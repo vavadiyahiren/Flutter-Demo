@@ -49,7 +49,7 @@ Widget MatchCard() {
   return Padding(
     padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
     child: Card(
-      elevation: 5.0,
+      elevation: 10.0,
       child: Column(
         children: <Widget>[
           Padding(
